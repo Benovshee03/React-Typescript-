@@ -10,22 +10,28 @@ interface Product{
 type ProductType = Product | null;
 export default function InitialState() {
     const [ product,setProduct]=useState<ProductType>(null)
+    const [loading,setLoading]=useState(true)
     useEffect(()=>{
     fetch("https://fakestoreapi.com/products/1").then((res)=>{
         res.json().then((data)=>{
             setTimeout(() => {
                 setProduct(data)
-            }, 2000);
+                setLoading(false)
+            }, 1000);
         })
 })
     },[])
   return (
-    <div className='container'>
-        <h1>{product?.title}</h1>
-        <p>{product?.description}</p>
-        <p>{product?.price}</p>
-        <p>{product?.category}</p>
-        <img src={product?.image} alt={product?.title} />
-    </div>
+    <>
+    {loading ? ("..Loading"):(
+                    <div className='container'>
+                    <h1>{product?.title}</h1>
+                    <p>{product?.description}</p>
+                    <p>{product?.price}</p>
+                    <p>{product?.category}</p>
+                    <img src={product?.image} alt={product?.title} />
+                </div>
+        )}
+    </>
   )
 }
