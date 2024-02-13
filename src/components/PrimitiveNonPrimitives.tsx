@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react'
 
 export default function PrimitiveNonPrimitives() {
     console.log('PrimitiveNonPrimitives');
-    const [price,setPrice]=useState(0)
+    const [price,setPrice]=useState({
+        name:"Benovshe",
+        age:20
+    })
     const handleClick=()=>{
-    setPrice(price+1)
+        setPrice({
+            name:"Benovshe",
+            age:20
+        })
     }
     useEffect(()=>{console.log('use Effecttt');
     },[price])

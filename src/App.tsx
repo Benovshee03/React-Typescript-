@@ -5,6 +5,7 @@ import UserInfo from './components/UserInfo';
 import RegisterForm from './components/RegisterForm'
 import CalculatePrice from './components/CalculatePrice';
 import PrimitiveNonPrimitives from './components/PrimitiveNonPrimitives';
+import InitialState from './components/InitialState';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       {/* <RegisterForm/> */}
       <CalculatePrice/>
       <PrimitiveNonPrimitives/>
+      <InitialState/>
+
       
     </div>
   );
